@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Library App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-header">
+            <h1>Add a New Book to Library</h1>
+        </div>
+        <div class="book-heading">
+            <h1>Current Books in Library</h1>
+        </div>
+        <div class="form">
+            <button class="add-book-button">Add Book</button>
+            <div id="add-book-form" style="display:none">
+                <form id="add-book">
+                    <label for="Title">Title: </label>
+                    <input type="text" id="Title" name="Title">
+                    <label for="Author">Author: </label>
+                    <input type="text" id="Author" name="Author">
+                    <label for="Pages">Pages: </label>
+                    <input type="text" id="Pages" name="Pages">
+                    <label for="Read">Status: </label>
+                    <select name="Read" id="Read">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </form>
+                <button type="submit" class="submit-button">submit</button>
+                <button type="reset" class="reset-button">reset</button>
+            </div>
+        </div>
+
+        <div class="books">
+
+        </div>
+    </div>
+
+    <script src="./main.js"></script>
+</body>
+
+</html>
