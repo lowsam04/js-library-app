@@ -1,76 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Rowdies&display=swap");
+
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Rowdies", cursive;
 }
 
 .container {
-    border-style: groove;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: .1fr;
-    text-align: center;
-    min-height: 100vh;
+  border-style: groove;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 0.1fr;
+  text-align: center;
+  min-height: 100vh;
 }
 
 .form-header,
 .book-heading,
-.form{
-    border-style: groove;
-    background-color: aqua;
+.form {
+  border-style: groove;
+  background-color: #f9f4ef;
 }
 
-
-.books{
-    border-style: groove;
-    background-color: #bccbde;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-column: 2 / 3;
-    gap: 15px;
-    padding-left: 15px;
-    padding-top: 15px;
-    padding-right: 15px;
+.books {
+  border-style: groove;
+  background-color: #eaddcf;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-column: 2 / 3;
+  gap: 15px;
+  padding-left: 15px;
+  padding-top: 15px;
+  padding-right: 15px;
 }
 
-.books .card{
-    background-color: #fff;
-    color: black;
-    text-align: center;
-    height: 400px;
-    display: grid;
+.books .card {
+  background-color: #fffffe;
+  color: black;
+  text-align: center;
+  height: 400px;
+  display: grid;
+  border-radius: 5px;
 }
 
-button{
-    pointer-events: auto;
-	cursor: pointer;
-	background: #e7e7e7;
-	border-radius: 10px;
-	font-family: inherit;
-	font-size: inherit;
-	display: inline-block;
+button {
+  pointer-events: auto;
+  cursor: pointer;
+  background: #8c7851;
+  color: #fffffe;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: inherit;
+  display: inline-block;
+  padding: 10px;
 }
 
-#add-book{
-    display: grid;
-    grid-template-columns: .1fr 1fr;
-    gap: 10px;
-    margin: 50px;
-    align-items: center;
-    justify-items: center;
-
+#add-book {
+  display: grid;
+  grid-template-columns: 0.1fr 1fr;
+  gap: 10px;
+  margin: 50px;
+  align-items: center;
+  justify-items: center;
 }
 
-.remove-book-button{
-    grid-row: 5/6;
-    font-weight: 900;
-    background-color: red;
-    border-radius: 10px;
+.remove-book-button {
+  grid-row: 5/6;
+  font-weight: 900;
+  background-color: #f25042;
+  border-radius: 10px;
+  color: #020826;
 }
 
-.read-status-button{
-    grid-row: 6/7;
-    font-weight: 900;
-    background-color: red;
-    border-radius: 10px;
+.read-status-button {
+  grid-row: 6/7;
+  font-weight: 900;
+  background-color: #8c7851;
+  border-radius: 10px;
+  color: #020826;
 }
+
+.read-status-button .read {
+    background-color: green
+}
+
