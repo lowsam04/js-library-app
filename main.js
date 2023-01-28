@@ -3,16 +3,16 @@ let myLibrary = [];
 //1. Class Object
 class Book {
     constructor(Title, Author, Pages, Read) {
-        (this.Title = Title),
-            (this.Author = Author),
-            (this.Pages = Pages),
-            (this.Read = Read);
+        this.Title = Title;
+        this.Author = Author;
+        this.Pages = Pages;
+        this.Read = Read;
     }
 }
 
 // 2. Function to adding book to array
 function addBookToLibrary(Title, Author, Pages, Read) {
-    let book = new Book(Title, Author, Pages, Read)
+    let book = new Book(Title, Author, Pages, Read);
     myLibrary.push(book);
     displayBooksOnPage();
 }
@@ -30,8 +30,8 @@ function displayBooksOnPage() {
     }
 
     // Loop over the library array and display the cards
-    let index = 0
-    myLibrary.forEach(myLibrarys => {
+    let index = 0;
+    myLibrary.forEach((myLibrarys) => {
         const card = document.createElement("div");
         card.classList.add("card");
         books.appendChild(card);
@@ -39,8 +39,11 @@ function displayBooksOnPage() {
         //create remove book button and add class attrivute for each array card
         const removeBookButton = document.createElement("button");
         removeBookButton.classList.add("remove-book-button");
-        removeBookButton.textContent = "Remove From Library"
-        console.log("show me my current array objects inside of foreach...", myLibrary);
+        removeBookButton.textContent = "Remove From Library";
+        console.log(
+            "show me my current array objects inside of foreach...", 
+            myLibrary
+        );
 
         //link the data attribute of the remove button to the array and card
         removeBookButton.dataset.linkedArray = index;
@@ -54,7 +57,7 @@ function displayBooksOnPage() {
             let retrieveBookToRemove = removeBookButton.dataset.linkedArray;
             console.log("Attempting to remove array item via data attribute...", parseInt(retrieveBookToRemove));
             myLibrary.splice(parseInt(retrieveBookToRemove), 1);
-            card.remove()
+            card.remove();
             displayBooksOnPage();
         }
 
@@ -78,10 +81,10 @@ function displayBooksOnPage() {
             console.log("what is the toggle initial value?...", myLibrary[parseInt(retrieveBookToToggle)].Read);
 
             // Run check to see what read value is present to toggle from
-            if ((myLibrary[parseInt(retrieveBookToToggle)].Read) == "Yes") {
+            if (myLibrary[parseInt(retrieveBookToToggle)].Read == "Yes") {
                 toggleBook.Read = "No";
                 myLibrary[parseInt(retrieveBookToToggle)].Read = toggleBook.Read;
-            } else if ((myLibrary[parseInt(retrieveBookToToggle)].Read == "No")) {
+            } else if (myLibrary[parseInt(retrieveBookToToggle)].Read == "No") {
                 toggleBook.Read = "Yes";
                 myLibrary[parseInt(retrieveBookToToggle)].Read = toggleBook.Read;
             }
@@ -92,7 +95,7 @@ function displayBooksOnPage() {
         for (let key in myLibrarys) {
             console.log(`${key}: ${myLibrarys[key]}`);
             const para = document.createElement("p");
-            para.textContent = (`${key}: ${myLibrarys[key]}`);
+            para.textContent = `${key}: ${myLibrarys[key]}`;
             card.appendChild(para);
         }
         index++;
@@ -101,10 +104,10 @@ function displayBooksOnPage() {
 
 // 4.start event listener display form to add a new book to libary
 const addBookButton = document.querySelector(".add-book-button");
-addBookButton.addEventListener('click', displayTheForm);
+addBookButton.addEventListener("click", displayTheForm);
 
 function displayTheForm() {
-    document.getElementById("add-book-form").style.display = '';
+    document.getElementById("add-book-form").style.display = "";
 }
 
 // start event listener/ add input to array for new entry form
@@ -119,7 +122,7 @@ function intakeFormData() {
     let Read = document.getElementById("Read").value;
 
     if ((Title == '') || (Author == '') || (Pages == '') || (Read == '')) {
-        return alert("Try again");
+        return;
     }
 
     // Call function to input the book data to array
@@ -137,14 +140,31 @@ function clearForm() {
     document.getElementById("add-book").reset();
 }
 
-
-
-
-
-
-
-
-
-
-
-
+// Validate the form with the Constraint Validation API
+const constraintValidationAPI = (() => {
+    const valTitle = document.getElementById("Title");
+  
+    valTitle.addEventListener("input", () => {
+      valTitle.setCustomValidity("");
+      valTitle.checkValidity();
+    });
+  
+    valTitle.addEventListener("invalid", () => {
+      if (valTitle.value === "") {
+        valTitle.setCustomValidity("Title cannot be blank!");
+      }
+    });
+  
+    const valAuthor = document.getElementById("Author");
+  
+    valAuthor.addEventListener("input", () => {
+      valAuthor.setCustomValidity("");
+      valAuthor.checkValidity();
+    });
+  
+    valAuthor.addEventListener("invalid", () => {
+      if (valAuthor.value === "") {
+        valAuthor.setCustomValidity("Author cannot be blank!");
+      }
+    });
+  })();

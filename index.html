@@ -24,26 +24,26 @@
             <button class="add-book-button">Add Book</button>
             <div id="add-book-form" style="display:none">
                 <form id="add-book">
-                    <label for="Title">Title: </label>
-                    <input type="text" id="Title" name="Title">
-                    <label for="Author">Author: </label>
-                    <input type="text" id="Author" name="Author">
-                    <label for="Pages">Pages: </label>
-                    <input type="text" id="Pages" name="Pages">
+                    <label for="Title">Title:</label>
+                    <input type="text" id="Title" name="Title" required />
+                    <label for="Author">Author:</label>
+                    <input type="text" id="Author" name="Author" required />
+                    <label for="Pages">Pages:</label>
+                    <input type="number" id="Pages" name="Pages" required />
                     <label for="Read">Status: </label>
                     <select name="Read" id="Read">
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>
+                    <button type="submit" class="submit-button">
+                        Submit To Library
+                    </button>
+                    <button type="reset" class="reset-button">Reset Form</button>
                 </form>
-                <button type="submit" class="submit-button">Submit</button>
-                <button type="reset" class="reset-button">Reset</button>
             </div>
         </div>
 
-        <div class="books">
-
-        </div>
+        <div class="books"></div>
     </div>
 
     <script src="./main.js"></script>
